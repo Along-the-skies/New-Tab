@@ -1,0 +1,207 @@
+:root {
+    --text-color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: black;
+    background-image: url("assets/Wallpaper.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.topbar {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.topbar a {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.topbar i {
+    color: var(--text-color);
+}
+
+#profile,
+#Apps {
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.searchdiv {
+    width: 100vw;
+    padding-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.searchdiv .timeLbl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+#add {
+    padding-left: 8px;
+    color: var(--text-color);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+#mic {
+    padding-right: 8px;
+    color: var(--text-color);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.searchdiv .searchbox {
+    width: 500px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--text-color);
+    border-radius: 18px;
+}
+
+.searchdiv .searchbox .search {
+    width: 500px;
+    height: 100%;
+    border: none;
+    border-radius: 18px;
+    color: var(--text-color);
+    background-color: transparent;
+}
+
+.searchdiv .searchbox .search:focus {
+    outline: none;
+    caret-color: var(--text-color);
+}
+
+.shortcuts {
+    display: flex;
+    gap: 16px;
+    padding-top: 30px;
+    padding-left: 100px;
+    color: var(--text-color);
+}
+
+.shortcuts .shortcut-card {
+    width: 140px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.shortcuts .shortcut-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.shortcut-card img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    background-color: transparent;
+}
+
+.shortcut-card h1 {
+    margin: 0;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--text-color);
+    background-color: transparent;
+}
+
+.shortcut-card b {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    background-color: transparent;
+}
+
+.weather-card {
+    position: fixed;
+    top: 50%;
+    right: -180px;
+    width: 180px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: none;
+    border-radius: 18px 0 0 18px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--text-color);
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+    transition: right 0.25s ease, background 0.2s ease;
+}
+
+.weather-card:hover {
+    right: 0;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+#weather-icon {
+    font-size: 42px;
+    color: var(--text-color);
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+#temperature {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#location {
+    font-size: 13px;
+    opacity: 0.75;
+}
