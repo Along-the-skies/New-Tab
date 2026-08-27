@@ -7,7 +7,7 @@
 * Wallpapers from NASA database
 
   <details>
-  <summary>NASA DATA!!!!</summary>
+  <summary>**NASA DATA** Click here for them</summary>
 
   very complicatd
 
