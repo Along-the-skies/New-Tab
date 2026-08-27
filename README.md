@@ -42,7 +42,7 @@ HTML
 CSS
 JS
   ↓
-magic
+API call
   ↓
 Python Flask
   ↓
