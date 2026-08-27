@@ -36,8 +36,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
+          # Targets the folder containing your index.html
           path: './frontend'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        # Reverted to v4 for broad stability across public repositories
+        uses: actions/deploy-pages@v4
