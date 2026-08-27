@@ -65,7 +65,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 48px;
+    font-size: 64px;
     font-weight: bolder;
 }
 
@@ -109,10 +109,14 @@ body {
 
 .shortcuts {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     gap: 16px;
     padding-top: 30px;
-    padding-left: 100px;
+    padding-left: 0px;
     color: var(--text-color);
+    width: 100%;
+    align-items: center;
 }
 
 .shortcuts .shortcut-card {
@@ -221,4 +225,14 @@ body {
 #location {
     font-size: 13px;
     opacity: 0.75;
+}
+
+
+.time {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

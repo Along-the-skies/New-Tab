@@ -3,15 +3,31 @@ weatherCard = document.querySelector(".weather-card")
 
 const rawTime = new Date();
 let hours = rawTime.getHours();
+let am = false
+
+if (hours <= 12){
+    am = true
+}else{
+    am = false
+}
+
+hours = hours-12
+
 let minutes = rawTime.getMinutes();
 if (String(minutes).length<2){
     minutes = `0${minutes}`;
 } 
 
 
-const time = `${hours}:${minutes}`;
+let time = `${hours}:${minutes}`;
 console.log(rawTime);
 console.log(time);
+
+if (am===true){
+    document.getElementById("apm").innerHTML=`am`
+} else {
+    document.getElementById("apm").innerHTML=`pm`
+}
 
 timeElement.innerHTML = time;
 
