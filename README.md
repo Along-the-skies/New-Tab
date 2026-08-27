@@ -3,7 +3,7 @@
 > Give your website a pulse
 ```text
 Note :- Try to check the right most margin something will peek into .
-NOTE2 :- The add files and voice search are just placeholders
+NOTE2 :- The "Add Files/Shortcuts" and voice search are just placeholders
 ```
 ## FEATURES!!!!!!
 
