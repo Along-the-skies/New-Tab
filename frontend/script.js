@@ -147,7 +147,7 @@ addShortcut.addEventListener("click", () => {
 
     if (!name || !name.trim()) {
         return;
-    }
+    };
 
     const urlInput = prompt("Enter the website URL:");
 
