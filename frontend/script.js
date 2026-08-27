@@ -1,5 +1,7 @@
 timeElement = document.getElementById("timeLbl");
 weatherCard = document.querySelector(".weather-card")
+const searchInput = document.querySelector(".search");
+
 
 const rawTime = new Date();
 let hours = rawTime.getHours();
@@ -98,3 +100,14 @@ navigator.geolocation.getCurrentPosition(function(position){
             document.getElementById("temperature").innerHTML = `${data.temperature}°C`;
         })
 })
+
+
+searchInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        const query = searchInput.value.trim();
+        if (query) {
+            window.location.href =
+                `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        }
+    }
+});
