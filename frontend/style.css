@@ -1,5 +1,13 @@
 :root {
     --text-color: white;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-bg-hover: rgba(255, 255, 255, 0.14);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --blur: 12px;
+    --radius-lg: 18px;
+    --radius-md: 14px;
+    --font-main: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --transition-fast: 0.2s ease;
 }
 
 * {
@@ -50,8 +58,7 @@ body {
     justify-content: center;
     align-items: center;
     color: var(--text-color);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
-        'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--font-main);
 }
 
 .searchdiv .timeLbl {
@@ -83,14 +90,14 @@ body {
     justify-content: center;
     align-items: center;
     border: 2px solid var(--text-color);
-    border-radius: 18px;
+    border-radius: var(--radius-lg);
 }
 
 .searchdiv .searchbox .search {
-    width: 500px;
+    width: 100%;
     height: 100%;
     border: none;
-    border-radius: 18px;
+    border-radius: var(--radius-lg);
     color: var(--text-color);
     background-color: transparent;
 }
@@ -117,18 +124,18 @@ body {
     justify-content: center;
     gap: 10px;
     padding: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
 }
 
 .shortcuts .shortcut-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg-hover);
 }
 
 .shortcut-card img {
@@ -140,7 +147,7 @@ body {
 
 .shortcut-card h1 {
     margin: 0;
-    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-family: var(--font-main);
     font-size: 14px;
     font-weight: normal;
     color: var(--text-color);
@@ -171,14 +178,14 @@ body {
 
     padding: 18px;
 
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border);
     border-right: none;
-    border-radius: 18px 0 0 18px;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--glass-bg);
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
 
     color: var(--text-color);
 
@@ -187,12 +194,12 @@ body {
 
     transform: translateY(-50%);
 
-    transition: right 0.25s ease, background 0.2s ease;
+    transition: right 0.25s ease, background var(--transition-fast);
 }
 
 .weather-card.show {
     right: 0;
-    background: rgba(255, 255, 255, 0.14);
+    background: var(--glass-bg-hover);
 }
 
 #weather-icon {
