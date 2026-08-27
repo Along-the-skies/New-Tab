@@ -1,6 +1,6 @@
 from flask import Flask,jsonify ,request ,send_from_directory
-from wallpaper import get_wallpaper
-from weather import get_weather
+from backend.wallpaper import get_wallpaper
+from backend.weather import get_weather
 
 app = Flask(__name__)
 
