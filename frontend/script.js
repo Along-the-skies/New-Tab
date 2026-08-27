@@ -1,7 +1,8 @@
 timeElement = document.getElementById("timeLbl");
 weatherCard = document.querySelector(".weather-card")
 const searchInput = document.querySelector(".search");
-
+const addShortcut = document.getElementById("addShortcut");
+const shortcutsContainer = document.querySelector(".shortcuts");
 
 const rawTime = new Date();
 let hours = rawTime.getHours();
@@ -111,3 +112,70 @@ searchInput.addEventListener("keydown", (event) => {
         }
     }
 });
+
+
+
+
+function loadShortcuts() {
+    const savedShortcuts = JSON.parse(
+        localStorage.getItem("quickLaunches") || "[]"
+    );
+
+    savedShortcuts.forEach(shortcut => {
+        createShortcut(shortcut.name, shortcut.url);
+    });
+}
+
+function createShortcut(name, url) {
+    const shortcut = document.createElement("a");
+
+    shortcut.className = "shortcut-card";
+    shortcut.href = url;
+    shortcut.target = "_blank";
+
+    shortcut.innerHTML = `
+        <img src="https://www.google.com/s2/favicons?domain=${encodeURIComponent(url)}&sz=64">
+        <h1>${name}</h1>
+    `;
+
+    // Put new shortcut before the + button
+    shortcutsContainer.insertBefore(shortcut, addShortcut);
+}
+
+addShortcut.addEventListener("click", () => {
+    const name = prompt("Enter a name for the shortcut:");
+
+    if (!name || !name.trim()) {
+        return;
+    }
+
+    const urlInput = prompt("Enter the website URL:");
+
+    if (!urlInput || !urlInput.trim()) {
+        return;
+    }
+
+    let url = urlInput.trim();
+
+    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+        url = `https://${url}`;
+    }
+
+    const savedShortcuts = JSON.parse(
+        localStorage.getItem("quickLaunches") || "[]"
+    );
+
+    savedShortcuts.push({
+        name: name.trim(),
+        url: url
+    });
+
+    localStorage.setItem(
+        "quickLaunches",
+        JSON.stringify(savedShortcuts)
+    );
+
+    createShortcut(name.trim(), url);
+});
+
+loadShortcuts();
