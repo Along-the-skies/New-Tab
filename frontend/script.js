@@ -245,7 +245,7 @@ fileInput.addEventListener("change", () => {
         return;
     }
 
-    window.open("https://lens.google.com/", "_blank");
+    window.location.href = "https://lens.google.com/";
 
     fileInput.value = "";
 });
