@@ -226,30 +226,26 @@ if (SpeechRecognition) {
 
 
 const fileInput = document.getElementById("fileInput");
+const addButton = document.getElementById("add");
 
-fileInput.addEventListener("change" ,function(){
-    const file=fileInput.files[0];
+addButton.addEventListener("click", () => {
+    fileInput.click();
+});
 
-    if (!file){
-        return
+fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+
+    if (!file) {
+        return;
     }
 
-    const formData = new FormData();
-    formData.append("encoded_image",file);
+    if (!file.type.startsWith("image/")) {
+        alert("Only image files are supported.");
+        fileInput.value = "";
+        return;
+    }
 
-    fetch("https://lens.google.com/v3/upload", {
-        method: "POST",
-        body: formData
-    })
+    window.open("https://lens.google.com/", "_blank");
 
-    .then(response => {
-        if (response.redirected) {
-            window.location.href = response.url;
-        } else {
-            return response.text();
-        }
-    })
-    .catch(error => {
-        console.error("Google Lens upload failed:", error);
-    });
+    fileInput.value = "";
 });
