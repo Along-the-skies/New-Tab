@@ -16,10 +16,10 @@
 <body>
 
     <div class="topbar">
-        <a href="#">Email</a>
-        <a href="#">Images</a>
-        <a class="material-symbols-outlined" id="Apps" href="#">apps</a>
-        <a class="material-symbols-outlined" id="profile" href="#">account_circle</a>
+        <a href="https://mail.google.com">Email</a>
+        <a href="https://images.google.com">Images</a>
+        <a class="material-symbols-outlined" id="Apps" href="https://www.google.com/intl/en/about/products">apps</a>
+        <a class="material-symbols-outlined" id="profile" href="https://myaccount.google.com">account_circle</a>
     </div>
 
     <div class="searchdiv">
@@ -29,7 +29,11 @@
         </div>
 
         <div class="searchbox">
-            <a class="material-symbols-outlined" id="add" href="#">add</a>
+            <label class="material-symbols-outlined" id="add" for="fileInput">
+                add
+            </label>
+
+            <input type="file" id="fileInput" accept="image/*" hidden>
 
             <input
                 type="search"

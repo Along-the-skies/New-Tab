@@ -13,8 +13,13 @@ if (hours <= 12){
 }else{
     am = false
 }
+if (hours > 12){
+    hours = hours-12
+}
 
-hours = hours-12
+if (hours === 0) {
+    hours = 12
+}
 
 let minutes = rawTime.getMinutes();
 if (String(minutes).length<2){
@@ -179,3 +184,72 @@ addShortcut.addEventListener("click", () => {
 });
 
 loadShortcuts();
+
+const micButton = document.getElementById("mic");
+
+const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (SpeechRecognition) {
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.continuous = false;
+
+    micButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        recognition.start();
+    });
+
+    recognition.addEventListener("result", (event) => {
+        const transcript =
+            event.results[0][0].transcript.trim();
+
+        if (transcript) {
+            searchInput.value = transcript;
+
+            window.location.href =
+                `https://www.google.com/search?q=${encodeURIComponent(transcript)}`;
+        }
+    });
+
+    recognition.addEventListener("error", (event) => {
+        console.error("Voice search error:", event.error);
+    });
+} else {
+    micButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        alert("Voice search is not supported in this browser.");
+    });
+}
+
+
+const fileInput = document.getElementById("fileInput");
+
+fileInput.addEventListener("change" ,function(){
+    const file=fileInput.files[0];
+
+    if (!file){
+        return
+    }
+
+    const formData = new FormData();
+    formData.append("encoded_image",file);
+
+    fetch("https://lens.google.com/v3/upload", {
+        method: "POST",
+        body: formData
+    })
+
+    .then(response => {
+        if (response.redirected) {
+            window.location.href = response.url;
+        } else {
+            return response.text();
+        }
+    })
+    .catch(error => {
+        console.error("Google Lens upload failed:", error);
+    });
+});
